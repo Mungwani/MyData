@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     borderRadius: 40,
-    
+    marginTop: 20,
   },
   numberBox:{
     flex:1,
