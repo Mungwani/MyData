@@ -1,30 +1,41 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+
+//const a = 0; //이렇게 하면 안됨
 
 export default function App() {
+  const [number, setNumber] = useState(0);
+  
+  //useState(); //변하는 부분
+  
+  const handleMinus = () => {
+    setNumber(number-1);
+  };
+  const handlePlus = () => {
+    setNumber(number+1);
+  };
+  
   return (
     <SafeAreaView style={styles.container}>
-
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.flexRow}>
-        <View style={styles.box3} />
-        <View style={styles.box4} />
-        <View style={styles.box5} />
-        <View style={styles.box6} />
+      
+      <View style={styles.box}>
+      <Text style={styles.title}> This is My Counter</Text>
+      <Text style={styles.subt}> MIN : 0  /  MAX : 10</Text>
       </View>
-      <View style={styles.box7} />
-      <View style={styles.box8} />
-
-      <View style={styles.skyBlue} />
-      <View style={styles.blue} />
-      <View style={styles.flexRow}>
-        <View style={styles.white} />
-        <View style={styles.black} />
+      <View style={styles.box}>
+        <Text style={styles.number}>{number}</Text>
       </View>
-      <View style={styles.gray} />
-      <View style={styles.yellow} />
+      <View style={styles.numberBox}>
+        <TouchableOpacity style = {styles.minusButton} onPress={handleMinus} disabled={number<=0}>
+        <Text style={styles.buttonText}>-</Text>
+        </TouchableOpacity>
 
+        <TouchableOpacity style = {styles.plusButton}onPress={handlePlus}disabled={number>=10}>
+        <Text style={styles.buttonText}>+</Text>
+        </TouchableOpacity>
+        
+      </View>
     </SafeAreaView>
   );
 }
@@ -32,82 +43,65 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
-    backgroundColor:'white',
+    backgroundColor: '#dcedc8',
+  
   },
 
-  flexRow: {
-    flex : 1,
-    backgroundColor: 'gray',
-    flexDirection: 'row',
-    gap: 10,
-  },
- 
-  box1: {
-    backgroundColor: 'blue',
-    borderWidth:10,
-    borderColor: 'red',
-    //flex:1,
-    height : 110,
-  },
-  box2: {
-    backgroundColor: 'green',
-    //flex:1,
-    height : 150,
-  },
-  box3: {
-    backgroundColor: '#ff7043',
-    flex: 1,
-  },
-  box4: {
-    backgroundColor: '#69f0ae',
-    flex: 1,
-  },
-  box5: {
-    backgroundColor: '#ff9100',
-    flex: 1,
-  },
-  box6: {
-    backgroundColor: '#9e9d24',
-    flex: 1,
-  },
-  box7: {
-    backgroundColor: '#6a1b9a',
-    height: 190,
-  },
-  box8: {
-    backgroundColor: '#827717',
-    height: 95,
-
-  },
-  flexRow: {
-    flexDirection: 'row',
-    flex: 1,
+  box: {
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
-  skyBlue: {
-    backgroundColor: 'skyblue',
-    flex: 1,
+  title : {
+    fontSize: 35,
+    fontWeight:'900',
+    color:'#1b5e20'
   },
-  blue: {
-    backgroundColor: 'blue',
-    flex: 1,
+  
+  subt :{
+    marginTop:10,
+    fontSize: 18,
+    color:'#2e7d32'
   },
-  white: {
-    backgroundColor: 'white',
-    flex: 1,
-  },
-  black: {
-    backgroundColor: 'black',
-    flex: 1,
-  },
-  gray: {
-    flex: 1, 
-    backgroundColor: 'gray',
-  },
-  yellow: {
-    flex: 1,
-    backgroundColor: 'yellow',
 
+  number : {
+    color: 'green',
+    fontSize:100,
+    fontWeight: '900',
   },
+
+  buttonText:{
+    color:'white',
+    fontSize: 70,
+    fontWeight : '900',
+  
+  },
+
+  minusButton:{
+    backgroundColor:'#ff7043',
+    width:80,
+    height:80,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius: 40,
+    marginTop: 20,
+    marginRight: 40,
+  },
+  plusButton:{
+    backgroundColor:'#29b6f6',
+    width:80,
+    height:80,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius: 40,
+    
+  },
+  numberBox:{
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'center',
+    alignContent:'center',
+    gap:20,
+  }
 });
