@@ -1,77 +1,70 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={[styles.rainbow, styles.red]} />
-      <View style={[styles.rainbow, styles.orange]} />
-      <View style={[styles.rainbow, styles.yellow]} />
-      <View style={[styles.rainbow, styles.green]} />
-      <View style={[styles.rainbow, styles.blue]} />
-      <View style={[styles.rainbow, styles.indigo]} />
-      <View style={[styles.rainbow, styles.violet]} />
-      <View style={styles.content}>
-        <Text style={styles.text1}>컴퓨터공학과 21학번 한철완</Text>
-        <Text style={styles.text2}>MyData 앱개발 교육</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.flexRow}>
+        <View style={styles.box3} />
+        <View style={styles.box4} />
+        <View style={styles.box5} />
+        <View style={styles.box6} />
       </View>
-      <StatusBar style="auto" />
-    </View>
+      <View style={styles.box7} />
+      <View style={styles.box8} />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-
+    backgroundColor:'white',
   },
 
-  red: {
-    backgroundColor: 'red',
-    height: 120, 
+  flexRow: {
+    flex : 1,
+    backgroundColor: 'gray',
+    flexDirection: 'row',
+    gap: 10,
   },
-  orange: {
-    backgroundColor: 'orange',
-    height: 120, 
-  },
-  yellow: {
-    backgroundColor: 'yellow',
-    height: 120, 
-  },
-  green: {
-    backgroundColor: 'green',
-    height: 120, 
-  },
-  blue: {
+ 
+  box1: {
     backgroundColor: 'blue',
-    height: 120, 
+    borderWidth:10,
+    borderColor: 'red',
+    //flex:1,
+    height : 110,
   },
-  indigo: {
-    backgroundColor: 'indigo',
-    height: 120, 
+  box2: {
+    backgroundColor: 'green',
+    //flex:1,
+    height : 150,
   },
-  violet: {
-    backgroundColor: 'purple',
-    height: 120, 
+  box3: {
+    backgroundColor: '#ff7043',
+    flex: 1,
   },
-
-  content: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    position : 'absolute',
-    top: 0,
-    left:0,
-    right:0,
-    bottom:0,
+  box4: {
+    backgroundColor: '#69f0ae',
+    flex: 1,
   },
-  text1: {
-    color: '#FFFFFF',
-    fontSize: 24,
-    marginBottom: 10,
+  box5: {
+    backgroundColor: '#ff9100',
+    flex: 1,
   },
-  text2: {
-    color: '#000000',
-    fontSize: 20,
+  box6: {
+    backgroundColor: '#9e9d24',
+    flex: 1,
+  },
+  box7: {
+    backgroundColor: '#6a1b9a',
+    height: 190,
+  },
+  box8: {
+    backgroundColor: '#827717',
+    height: 95,
   },
 });
