@@ -1,10 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
-
 //const a = 0; //이렇게 하면 안됨
-
-export default function App() {
+export default function Counter() {
   const [number, setNumber] = useState(0);
   
   //useState(); //변하는 부분
@@ -17,8 +16,10 @@ export default function App() {
   };
   
   return (
-    <SafeAreaView style={styles.container}>
-      
+
+     //리턴이 2개가 되면 오류가남.
+     
+      <>
       <View style={styles.box}>
       <Text style={styles.title}> This is My Counter</Text>
       <Text style={styles.subt}> MIN : 0  /  MAX : 10</Text>
@@ -30,29 +31,25 @@ export default function App() {
         <TouchableOpacity style = {styles.minusButton} onPress={handleMinus} disabled={number<=0}>
         <Text style={styles.buttonText}>-</Text>
         </TouchableOpacity>
-
         <TouchableOpacity style = {styles.plusButton}onPress={handlePlus}disabled={number>=10}>
         <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
-        
       </View>
-    </SafeAreaView>
+      </>
+
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#dcedc8',
   
   },
-
   box: {
     flex:1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   title : {
     fontSize: 35,
     fontWeight:'900',
@@ -64,20 +61,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color:'#2e7d32'
   },
-
   number : {
     color: 'green',
     fontSize:100,
     fontWeight: '900',
   },
-
   buttonText:{
     color:'white',
     fontSize: 70,
     fontWeight : '900',
   
   },
-
   minusButton:{
     backgroundColor:'#ff7043',
     width:80,
@@ -95,6 +89,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     borderRadius: 40,
+
     marginTop: 20,
   },
   numberBox:{
