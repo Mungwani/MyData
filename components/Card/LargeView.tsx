@@ -2,7 +2,7 @@ import { GluestackUIProvider, Text, Box, Center, Image, VStack } from "@gluestac
 import { config } from "@gluestack-ui/config"
 import Swiper from "react-native-swiper";
 import { Dimensions } from "react-native";  //폰의 넓이
-import { Webtoon } from "../types";
+import { Webtoon } from "../../types";
 import React from "react";
 
 interface LargeViewProp {

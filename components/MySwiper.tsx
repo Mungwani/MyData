@@ -2,7 +2,7 @@ import Swiper from "react-native-swiper";
 import { useQuery } from "@tanstack/react-query";
 import { Webtoon } from "../types";
 import React from "react";
-import LargeView from "../Card/LargeView";
+import LargeView from "./Card/LargeView";
 
 interface WebtoonResponse{
   webtoons: Webtoon[];

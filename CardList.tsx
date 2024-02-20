@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { VStack } from "@gluestack-ui/themed"
-import MediumCard from "./Card/MediumCard";
+import MediumCard from "./components/Card/MediumCard";
 import { Webtoon } from "./types";
 import React from "react";
 
