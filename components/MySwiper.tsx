@@ -14,6 +14,7 @@ const fetchWebtoons = async () => {
 };
 
 export default function MySwiper() {
+
   const { data } = useQuery<WebtoonResponse>({
     queryKey: ['korea-webtoon-api.herokuapp.com'],
     queryFn: fetchWebtoons,
