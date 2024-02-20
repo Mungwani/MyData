@@ -1,8 +1,8 @@
-import Swiper from "react-native-swiper";
 import { useQuery } from "@tanstack/react-query";
-import { Webtoon } from "../types";
+import { VStack } from "@gluestack-ui/themed"
+import MediumCard from "./components/Card/MediumCard";
+import { Webtoon } from "./types";
 import React from "react";
-import LargeView from "./Card/LargeView";
 
 interface WebtoonResponse{
   webtoons: Webtoon[];
@@ -13,20 +13,19 @@ const fetchWebtoons = async () => {
   return res.json();
 };
 
-export default function MySwiper() {
-
+export default function CardList() {
   const { data } = useQuery<WebtoonResponse>({
     queryKey: ['korea-webtoon-api.herokuapp.com'],
     queryFn: fetchWebtoons,
   });
 
   return (
-    <Swiper>
+    <VStack>
       {data
         ? data.webtoons.map((webtoon) => 
-          <LargeView webtoon={webtoon}/>
+          <MediumCard webtoon={webtoon}/>
         )
         : []}
-    </Swiper>
+    </VStack>
   );
 }
