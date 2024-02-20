@@ -1,4 +1,4 @@
-import { GluestackUIProvider, Text, Box, Center, Image } from "@gluestack-ui/themed"
+import { GluestackUIProvider, Text, Box, Center, Image, VStack, ScrollView } from "@gluestack-ui/themed"
 import { config } from "@gluestack-ui/config"
 import Swiper from "react-native-swiper";
 import { Dimensions } from "react-native";  //폰의 넓이만큼
